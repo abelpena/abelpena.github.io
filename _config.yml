@@ -14,11 +14,9 @@ author: Abel Pena
 # --- List of links in the navigation bar --- #
 
 navbar-links:
+  Projects: "projects"
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+
 
 # --- Logo --- #
 
@@ -40,16 +38,16 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "abelpenya@gmail.com"
-  github: daattali
+  github: abelpena
 #  reddit: yourname
-#  linkedin: daattali
+  linkedin: abel-pena-19534473
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  spotify: yourname
 #  telephone: +14159998888
-#  steam: deanat78
+  steam: iamsmexican
 #  twitch: yourname
 #  yelp: yourname
 #  telegram: yourname
@@ -72,7 +70,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "AbelPena.com"
+url-pretty: "abelpena.com"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
