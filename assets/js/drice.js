@@ -37,10 +37,10 @@ function getOutcome() {
 function rollDie() {
   return 1 + Math.floor(Math.random() * 6);
 }
-
+document.getElementById("outcome").innerHTML = "roll it";
 let btn = document.createElement("BUTTON"); // Create a <button> element
 btn.innerHTML = "Roll die"; // Insert text
 document.body.appendChild(btn);
 btn.onclick = function () {
-  getOutcome;
+  document.getElementById("outcome").innerHTML = getOutcome();
 };
