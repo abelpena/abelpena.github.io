@@ -6,67 +6,36 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>"Drunk Dice"</title>
+    <title>Drunk Dice</title>
     <meta name="author" content="Abel Pena" />
     <meta name="description" content="Roll Die, get lit." />
     <meta name="theme-color" content="#a00000" />
-    <link rel="stylesheet" href="./assets/css/beautifuljekyll.css" />
+    <link rel="stylesheet" href="/assets/css/beautifuljekyll.css" />
   </head>
 
   <nav
     class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"
   >
-    <a class="navbar-brand" href="abelpena.com">{{ "abelpena.com" }}</a>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#main-navbar"
-      aria-controls="main-navbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="abelpena.com">abelpena.com</a>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            href="#"
+            href="abelpena.com/projects"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-            >"./projects"</a
+            >projects</a
           >
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}"
-              >{{ linkparts[0] }}</a
-            >
-          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ link[1] | relative_url }}"
-            >{{ link[0] }}</a
-          >
+          <a class="nav-link" href="abelpena.com/aboutme">About</a>
         </li>
       </ul>
-    </div>
-
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
-          <img
-            alt="Navigation bar avatar"
-            class="avatar-img"
-            src="{{ site.avatar | relative_url }}"
-          />
-        </a>
-      </div>
     </div>
   </nav>
 
