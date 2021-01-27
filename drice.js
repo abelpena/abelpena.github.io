@@ -10,13 +10,14 @@
 */
 let players = [];
 let roundNumber = 0;
-let gameActive = true;
+let gameActive = false;
 let playerAdded = false;
 //define a player
 class Player {
   constructor(name) {
     this.name = name;
     this.shots = 0;
+
     this.drinks = 0;
     this.getName = function () {
       alert(this.name);
@@ -27,6 +28,7 @@ class Player {
     };
   }
 }
+
 //get the output of the die
 function getOutcome() {
   let val = rollDie();
@@ -58,6 +60,7 @@ function addPlayer() {
   let tempName = prompt("Your name?", "DrinkSlayer");
   players.push(new Player(tempName));
   playerAdded = true;
+  refreshList();
 }
 //remove player
 function deletePlayer(number) {
@@ -117,10 +120,6 @@ btn3.onclick = function () {
 let btn4 = document.createElement("BUTTON"); // Create a <button> element
 btn4.innerHTML = "End Game"; // Insert text
 document.body.appendChild(btn4);
-btn4.onclick = function () {};
-
-while (gameActive == false) {
-  if (playerAdded == true) {
-    refreshList();
-  }
-}
+btn4.onclick = function () {
+  endGame();
+};
