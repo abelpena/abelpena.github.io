@@ -90,10 +90,17 @@ function refreshList() {
 }
 
 function startGame() {
+  if (players.length < 3) {
+    alert("Must add 3 players before game can start.");
+    return;
+  }
   if (gameActive == true) console.log("Game already active.");
   else {
     console.log("Game started.");
     gameActive = true;
+    document.getElementById("status").innerHTML = "Game Started...";
+    roundNumber++;
+    document.getElementById("status").innerHTML = "Round Number " + roundNumber;
   }
 }
 function endGame() {
