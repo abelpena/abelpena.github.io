@@ -26,35 +26,36 @@ class Player {
     this.shot = function () {
       this.shots++;
     };
+    this.getOutcome = function getOutcome() {
+      let val = rollDie();
+      switch (val) {
+        case 1:
+          return "Person to the right drinks.";
+          break;
+        case 2:
+          return "Person to the left drinks.";
+          break;
+        case 3:
+          return "You take a shot.";
+          break;
+        case 4:
+          return "Pour someone a shot.";
+          break;
+        case 5:
+          return "You take two shots.";
+          break;
+        case 6:
+          return "Everyone takes a shot.";
+          break;
+        default:
+          break;
+      }
+    };
   }
 }
 
 //get the output of the die
-function getOutcome() {
-  let val = rollDie();
-  switch (val) {
-    case 1:
-      return "Person to the right drinks.";
-      break;
-    case 2:
-      return "Person to the left drinks.";
-      break;
-    case 3:
-      return "You take a shot.";
-      break;
-    case 4:
-      return "Pour someone a shot.";
-      break;
-    case 5:
-      return "You take two shots.";
-      break;
-    case 6:
-      return "Everyone takes a shot.";
-      break;
-    default:
-      break;
-  }
-}
+
 //add player to list
 function addPlayer() {
   let tempName = prompt("Your name?", "DrinkSlayer");
@@ -87,6 +88,14 @@ function refreshList() {
   }
   playerAdded = false;
 }
+
+function startGame() {
+  if (gameActive == true) console.log("Game already active.");
+  else {
+    console.log("Game started.");
+    gameActive = true;
+  }
+}
 function endGame() {
   while (players.length > 0) {
     players.pop();
@@ -111,10 +120,10 @@ btn2.onclick = function () {
 };
 
 let btn3 = document.createElement("BUTTON"); // Create a <button> element
-btn3.innerHTML = "Refresh"; // Insert text
+btn3.innerHTML = "Start Game"; // Insert text
 document.body.appendChild(btn3);
 btn3.onclick = function () {
-  refreshList();
+  startGame();
 };
 
 let btn4 = document.createElement("BUTTON"); // Create a <button> element
