@@ -17,7 +17,7 @@ class Player {
   constructor(name) {
     this.name = name;
     this.shots = 0;
-
+    this.index = players.length;
     this.drinks = 0;
     this.getName = function () {
       alert(this.name);
@@ -60,6 +60,7 @@ class Player {
 function addPlayer() {
   let tempName = prompt("Your name?", "DrinkSlayer");
   players.push(new Player(tempName));
+  players;
   playerAdded = true;
   refreshList();
 }
@@ -101,6 +102,12 @@ function startGame() {
     document.getElementById("status").innerHTML = "Game Started...";
     roundNumber++;
     document.getElementById("status").innerHTML = "Round Number " + roundNumber;
+  }
+}
+function startRound(params) {
+  for (let index = 0; index < players.length; index++) {
+    const element = players[index];
+    element.getOutcome();
   }
 }
 function endGame() {
