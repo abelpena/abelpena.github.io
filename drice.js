@@ -11,7 +11,6 @@
 let players = [];
 let roundNumber = 0;
 let gameActive = false;
-let playerAdded = false;
 //define a player
 class Player {
   constructor(name) {
@@ -61,9 +60,9 @@ function addPlayer() {
   let tempName = prompt("Your name?", "DrinkSlayer");
   players.push(new Player(tempName));
   players;
-  playerAdded = true;
   refreshList();
 }
+
 //remove player
 function deletePlayer(number) {
   return 1 + Math.floor(Math.random() * 6);
@@ -133,6 +132,7 @@ btn2.onclick = function () {
   addPlayer();
 };
 
+//start game button
 let btn3 = document.createElement("BUTTON"); // Create a <button> element
 btn3.innerHTML = "Start Game"; // Insert text
 document.body.appendChild(btn3);
@@ -146,3 +146,7 @@ document.body.appendChild(btn4);
 btn4.onclick = function () {
   endGame();
 };
+players.push(new Player(a));
+players.push(new Player(b));
+players.push(new Player(c));
+refreshList();
