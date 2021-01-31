@@ -9,14 +9,17 @@
     6 - everyone take shot
 */
 let players = [];
+let playerCount = 0;
 let roundNumber = 0;
 let gameActive = false;
+let turnNumber = 0;
 //define a player
 class Player {
-  constructor(name) {
+  constructor(name, idx) {
+    this.index = idx;
     this.name = name;
     this.shots = 0;
-    this.index = players.length;
+
     this.drinks = 0;
     this.getName = function () {
       alert(this.name);
@@ -25,27 +28,32 @@ class Player {
     this.shot = function () {
       this.shots++;
     };
+
+    this.end = function () {
+      this.end++;
+    };
     this.getOutcome = function getOutcome() {
-      let val = rollDie();
+      if ((this.index = players.length)) {
+        console.log(this.index + " player end set");
+        this.end = true;
+      } else this.end = false;
+      let val = 1;
       switch (val) {
         case 1:
+          if ((this.end = true)) {
+            players[0].shot();
+          } else players[this.index + 1].shot();
           return "Person to the right drinks.";
-          break;
         case 2:
           return "Person to the left drinks.";
-          break;
         case 3:
           return "You take a shot.";
-          break;
         case 4:
           return "Pour someone a shot.";
-          break;
         case 5:
           return "You take two shots.";
-          break;
         case 6:
           return "Everyone takes a shot.";
-          break;
         default:
           break;
       }
@@ -58,8 +66,9 @@ class Player {
 //add player to list
 function addPlayer() {
   let tempName = prompt("Your name?", "DrinkSlayer");
-  players.push(new Player(tempName));
+  players.push(new Player(tempName, playerCount));
   players;
+  playerCount++;
   refreshList();
 }
 
@@ -70,6 +79,10 @@ function deletePlayer(number) {
 //return num from 1-6
 function rollDie() {
   return 1 + Math.floor(Math.random() * 6);
+}
+//this is what pressing the roll button does
+function rollButtonPressed() {
+  return turnNumber;
 }
 function refreshList() {
   document.getElementById("list").innerHTML = "";
@@ -103,7 +116,9 @@ function startGame() {
     document.getElementById("status").innerHTML = "Round Number " + roundNumber;
   }
 }
+//function that will run while a round is in progress
 function startRound(params) {
+  turnNumber = 0;
   for (let index = 0; index < players.length; index++) {
     const element = players[index];
     element.getOutcome();
@@ -121,7 +136,11 @@ let btn = document.createElement("BUTTON"); // Create a <button> element
 btn.innerHTML = "Roll die"; // Insert text
 document.body.appendChild(btn);
 btn.onclick = function () {
-  document.getElementById("outcome").innerHTML = getOutcome();
+  document.getElementById("outcome").innerHTML = players[
+    turnNumber
+  ].getOutcome();
+  turnNumber++;
+  refreshList();
 };
 
 let btn2 = document.createElement("BUTTON"); // Create a <button> element
@@ -146,7 +165,3 @@ document.body.appendChild(btn4);
 btn4.onclick = function () {
   endGame();
 };
-players.push(new Player(a));
-players.push(new Player(b));
-players.push(new Player(c));
-refreshList();
