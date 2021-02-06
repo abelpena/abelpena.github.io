@@ -92,9 +92,9 @@ function getOutcome(myCallback) {
       players[parseInt(tempNum)].shots;
       break;
     case 5:
+      players[turnNumber].shot();
+      players[turnNumber].shot();
       myCallback("You take two shots.");
-      players[turnNumber].shot();
-      players[turnNumber].shot();
       break;
     case 6:
       for (let index = 0; index < playerCount; index++) {
