@@ -21,3 +21,13 @@ var love = setInterval(function() {
         }
     });
 }, 500);
+
+const letter = document.getElementById('envelope');
+const paper = document.getElementById('paper');
+paper.style.display = "none";
+function hide(){
+    paper.style.display = "";
+    letter.style.display = "none";
+}
+
+//letter.style.display = "block";
